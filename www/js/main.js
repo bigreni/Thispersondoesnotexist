@@ -89,6 +89,8 @@ AppRate.promptForRating(false);
 
 function reload()
 {
+    document.getElementById('screen').style.display = 'block';     
+    onLoad();
     d = new Date();
     var img = document.getElementById("imgPerson");
     img.src = "https://www.thispersondoesnotexist.com/?" + d.getTime();
