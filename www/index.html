@@ -25,7 +25,6 @@
                 left: 0;
                 right: 0;
                 z-index:1001;
-                background: lightgrey;
                 text-shadow: none;
                 color: black;
             }
@@ -34,7 +33,8 @@
 <body>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <div id="screen" class="splashscreen" style="display: none"></div>
+    <div id="screen" class="splashscreen" style="background:url(loader.gif) no-repeat center center;display: none">
+    </div>
         <script>
             // Show the splash screen with a loading message
             // Handler to hide the message when the loading stops
@@ -42,7 +42,6 @@
                 onLoad();
                 //document.getElementById("screen").style.display = 'none';
             };
-            document.getElementById("screen").innerHTML = 'Loading...';
             document.getElementById("screen").style.display = 'block';
         </script> 
     <div class="vertical-center">
