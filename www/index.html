@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="http://bigreni.com/css/persondoesnotexist/index.css" />
 <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
 <!-- Include jQuery Mobile stylesheets -->
@@ -39,7 +41,7 @@
         document.write('<script type="text/javascript" src="http://bigreni.com/js/persondoesnotexist/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
         //document.write('<script type="text/javascript" src="js/main_1.js?cb=' +cachebuster+'"></scr' + 'ipt>');
     </script>	
-    <div id="screen" class="splashscreen" style="background:url(loader.gif) no-repeat center center;display: none">
+    <div id="screen" class="splashscreen" style="background:url(http://bigreni.com/img/status.gif) no-repeat center center;display: none">
     </div>
         <script>
             // Show the splash screen with a loading message
@@ -54,5 +56,17 @@
         <img id="imgPerson" onclick="reload();" style="-webkit-user-select: none; height: 100vw; width: 100vw;" src="https://www.thispersondoesnotexist.com/">
         <p>Tap photo to lock eyes with another imaginary stranger!</p>
     </div>
+<div id="footer">
+  <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
+  <div class="row" id="bottomNav">
+    <div class="col-xs-4 text-center"><a href="javascript:fbShare();"><i class="fa fa-facebook"></i></a></div>
+    <div class="col-xs-4 text-center"><a href="javascript:twitterShare();"><i class="fa fa-twitter"></i></a></div>
+    <div class="col-xs-4 text-center"><a href="javascript:whatsappShare();"><i class="fa fa-whatsapp"></i></a></div>
+  </div>
+  </div>
+</div>
+
+        <script type='text/javascript' src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
