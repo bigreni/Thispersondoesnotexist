@@ -53,16 +53,24 @@
     }
 
     function loadInterstitial() {
-        AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+        if ((/(android|windows phone)/i.test(navigator.userAgent))) {
+            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+        } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
+            //AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+            document.getElementById("screen").style.display = 'none';     
+        } else
+        {
+            document.getElementById("screen").style.display = 'none';     
+        }
     }
 
    function checkFirstUse()
     {
-        window.ga.startTrackerWithId('UA-88579601-9', 1, function(msg) {
+        window.ga.startTrackerWithId('UA-88579601-21', 1, function(msg) {
             window.ga.trackView('Home');
         });
         initApp();
-        askRating();
+        //askRating();
         //document.getElementById('screen').style.display = 'none';     
     }
 
@@ -90,8 +98,35 @@ AppRate.promptForRating(false);
 function reload()
 {
     document.getElementById('screen').style.display = 'block';     
-    onLoad();
+    initApp();
     d = new Date();
     var img = document.getElementById("imgPerson");
     img.src = "https://www.thispersondoesnotexist.com/?" + d.getTime();
 }
+
+function fbShare(){
+	window.plugins.socialsharing.shareViaFacebook('Message via Facebook', 
+                                                 null /* img */, 
+                                                 null /* url */, 
+                                                 null, 
+                                                 function(errormsg){alert("Error: Cannot Share")}
+                                                 );
+};
+ 
+function whatsappShare(){
+	window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp',
+                                                 null /* img */,
+                                                 "https://pointdeveloper.com/" /* url */, 
+                                                 null, 
+                                                 function(errormsg){alert("Error: Cannot Share")}
+                                                 );
+};
+ 
+function twitterShare(){
+	 window.plugins.socialsharing.shareViaTwitter('Message via Twitter',
+                                                 null /* img */, 
+                                                 'http://twitter.com/', 
+                                                 null, 
+                                                 function(errormsg){alert("Error: Cannot Share")}
+                                                 );
+  };
