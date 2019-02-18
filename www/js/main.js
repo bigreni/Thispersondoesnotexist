@@ -10,12 +10,12 @@
   if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
     admobid = {
       banner: 'ca-app-pub-1683858134373419/7790106682', // or DFP format "/6253334/dfp_example_ad"
-      interstitial: 'ca-app-pub-9249695405712287/5288129821'
+      interstitial: 'ca-app-pub-9249695405712287/7860890916'
     };
   } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
     admobid = {
       banner: 'ca-app-pub-1683858134373419/7790106682', // or DFP format "/6253334/dfp_example_ad"
-      interstitial: 'ca-app-pub-9249695405712287/8955912090'
+      interstitial: 'ca-app-pub-9249695405712287/6711460771'
     };
   }
 
@@ -53,16 +53,24 @@
     }
 
     function loadInterstitial() {
-        AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+        if ((/(android|windows phone)/i.test(navigator.userAgent))) {
+            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+        } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
+            //AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+            document.getElementById("screen").style.display = 'none';     
+        } else
+        {
+            document.getElementById("screen").style.display = 'none';     
+        }
     }
 
    function checkFirstUse()
     {
-        window.ga.startTrackerWithId('UA-88579601-9', 1, function(msg) {
+        window.ga.startTrackerWithId('UA-88579601-21', 1, function(msg) {
             window.ga.trackView('Home');
         });
         initApp();
-        askRating();
+        //askRating();
         //document.getElementById('screen').style.display = 'none';     
     }
 
@@ -89,6 +97,8 @@ AppRate.promptForRating(false);
 
 function reload()
 {
+    document.getElementById('screen').style.display = 'block';     
+    initApp();
     d = new Date();
     var img = document.getElementById("imgPerson");
     img.src = "https://www.thispersondoesnotexist.com/?" + d.getTime();
