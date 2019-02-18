@@ -27,6 +27,8 @@ body {
 	padding: 0 0 0 0;
 	overflow: hidden;
     background-color: black;
+    color: white;
+    text-align: center;
 }
 
 .vertical-center {
