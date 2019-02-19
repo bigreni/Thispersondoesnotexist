@@ -112,7 +112,7 @@ function appShare(){
              //} else {
              //  return;
              //}
-                 window.plugins.socialsharing.share('Check out this app', null, 'https://itunes.apple.com/app/id1453309507 ' + 'https://play.google.com/store/apps/details?id=com.persondoesnotexist.free', null);
+                 window.plugins.socialsharing.share('https://itunes.apple.com/app/id1453309507 ' + 'https://play.google.com/store/apps/details?id=com.persondoesnotexist.free', null, null, null);
 
 };
 
