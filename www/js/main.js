@@ -105,6 +105,7 @@ function reload()
 }
 
 function fbShare(){
+    var filePath = capturePhoto();
 	window.plugins.socialsharing.shareViaFacebook('Message via Facebook', 
                                                  null /* img */, 
                                                  null /* url */, 
@@ -121,12 +122,25 @@ function whatsappShare(){
                                                  function(errormsg){alert("Error: Cannot Share")}
                                                  );
 };
- 
-function twitterShare(){
-	 window.plugins.socialsharing.shareViaTwitter('Message via Twitter',
-                                                 null /* img */, 
-                                                 'http://twitter.com/', 
-                                                 null, 
-                                                 function(errormsg){alert("Error: Cannot Share")}
-                                                 );
-  };
+
+function capturePhoto() {
+     var imageLink;
+     navigator.screenshot.save(function (error, res) {
+         if (error) {
+             console.error(error);
+         } else {
+             //For android
+             imageLink = res.filePath;
+
+             if ((/(android|windows phone)/i.test(navigator.userAgent))) {
+                 window.plugins.socialsharing.share(null, null, 'file://' + imageLink, null);
+             } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
+                 window.plugins.socialsharing.share(null, null, imageLink, null)
+             } else {
+               return;
+             }
+
+             //For iOS
+         }
+     }, 'jpg', 50, 'myScreenShot');
+    };
