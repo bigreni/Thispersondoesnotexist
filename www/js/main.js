@@ -105,15 +105,7 @@ function reload()
 }
 
 function appShare(){
-             //if ((/(android|windows phone)/i.test(navigator.userAgent))) {
-             //    window.plugins.socialsharing.share('Check out this app', null, 'itms-apps://itunes.apple.com/app/1453309507 ' + 'market://details?id=com.persondoesnotexist.free', null);
-             //} else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
-             //    window.plugins.socialsharing.share(null, null, imageLink, null)
-             //} else {
-             //  return;
-             //}
                  window.plugins.socialsharing.share('https://itunes.apple.com/app/id1453309507 ' + 'https://play.google.com/store/apps/details?id=com.persondoesnotexist.free', null, null, null);
-
 };
 
 function capturePhoto() {
