@@ -70,6 +70,10 @@
             window.ga.trackView('Home');
         });
         initApp();
+        d = new Date();
+        var img = document.getElementById("imgPerson");
+        img.src = "https://www.thispersondoesnotexist.com/image?" + d.getTime();
+
         //askRating();
         //document.getElementById('screen').style.display = 'none';     
     }
@@ -77,6 +81,9 @@
    function notFirstUse()
     {
         document.getElementById('screen').style.display = 'none';     
+        d = new Date();
+        var img = document.getElementById("imgPerson");
+        img.src = "https://www.thispersondoesnotexist.com/image?" + d.getTime();
     }
 
 function askRating()
@@ -101,7 +108,7 @@ function reload()
     initApp();
     d = new Date();
     var img = document.getElementById("imgPerson");
-    img.src = "https://www.thispersondoesnotexist.com/?" + d.getTime();
+    img.src = "https://www.thispersondoesnotexist.com/image?" + d.getTime();
 }
 
 function appShare(){
